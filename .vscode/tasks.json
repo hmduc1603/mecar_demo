@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"packages",
+				"pub",
+				"run",
+				"build_runner",
+				"build",
+				"--delete-conflicting-outputs"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter packages pub run build_runner build --delete-conflicting-outputs"
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"pub",
+				"get"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter pub get"
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"clean"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: clean"
+		}
+	]
+}

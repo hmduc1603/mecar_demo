@@ -40,8 +40,9 @@ class _MeCarAppBarState
               icon: Icon(Icons.close,
                   color: context
                       .myTheme
-                      .colorScheme
-                      .dark))
+                      .buttonThemeT1
+                      .body
+                      .color))
           : MeCarIconButton(
               onPressed: () =>
                   context.pop(),
@@ -50,8 +51,9 @@ class _MeCarAppBarState
                       .arrow_back_rounded,
                   color: context
                       .myTheme
-                      .colorScheme
-                      .dark)),
+                      .buttonThemeT1
+                      .body
+                      .color)),
       title: Text(widget.title,
           style: context.myTheme
               .textThemeT1.bigTitle

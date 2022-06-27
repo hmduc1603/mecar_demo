@@ -2,13 +2,18 @@ import 'dart:async';
 
 import 'package:injectable/injectable.dart';
 import 'package:mecar/base/base_cubit.dart';
+import 'package:mecar/features/sign_up/tfa_confirm/domain/usecase/submit_tfa_usecase.dart';
 import 'package:mecar/features/sign_up/tfa_confirm/presentation/tfa_confirm_state.dart';
 
 @injectable
 class TfaConfirmCubit
     extends BaseCubit<TfaConfirmState> {
-  TfaConfirmCubit()
-      : super(const TfaConfirmState());
+  final SubmitTfaUseCase
+      submitTfaUseCase;
+
+  TfaConfirmCubit(
+    this.submitTfaUseCase,
+  ) : super(const TfaConfirmState());
 
   Timer? _timer;
 

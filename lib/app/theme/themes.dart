@@ -10,6 +10,9 @@ class MeCarThemeData {
   final MeCarTextTheme textThemeT4;
   final MeCarTextTheme buttonThemeT1;
   final MeCarTextTheme buttonThemeT2;
+  final MeCarTextTheme borderThemeT1;
+  final MeCarTextTheme
+      buttonTitleThemeT1;
 
   const MeCarThemeData.raw({
     required this.brightness,
@@ -20,6 +23,8 @@ class MeCarThemeData {
     required this.buttonThemeT1,
     required this.buttonThemeT2,
     required this.textThemeT4,
+    required this.borderThemeT1,
+    required this.buttonTitleThemeT1,
   });
 
   factory MeCarThemeData({
@@ -28,34 +33,37 @@ class MeCarThemeData {
         colorScheme,
   }) =>
       MeCarThemeData.raw(
-        brightness: brightness,
-        colorScheme: colorScheme,
-        textThemeT1:
-            MeCarTextTheme.create(
-                colorScheme.dark),
-        textThemeT2:
-            MeCarTextTheme.create(
-                colorScheme.grey),
-        textThemeT3:
-            MeCarTextTheme.create(
-                colorScheme.lightGrey),
-        textThemeT4:
-            MeCarTextTheme.create(
-                colorScheme.lightDark),
-        buttonThemeT1:
-            MeCarTextTheme.create(
-                colorScheme.primary),
-        buttonThemeT2:
-            MeCarTextTheme.create(
-                colorScheme.white),
-      );
+          brightness: brightness,
+          colorScheme: colorScheme,
+          textThemeT1: MeCarTextTheme.create(
+              colorScheme.primary),
+          textThemeT2: MeCarTextTheme.create(
+              colorScheme.primary
+                  .withOpacity(0.7)),
+          textThemeT3: MeCarTextTheme.create(
+              colorScheme.primary
+                  .withOpacity(0.5)),
+          textThemeT4: MeCarTextTheme.create(
+              colorScheme.primary
+                  .withOpacity(0.2)),
+          buttonThemeT1:
+              MeCarTextTheme.create(
+                  colorScheme.primary),
+          buttonThemeT2:
+              MeCarTextTheme.create(colorScheme.primary.withOpacity(0.5)),
+          borderThemeT1: MeCarTextTheme.create(
+            colorScheme.primary,
+          ),
+          buttonTitleThemeT1: MeCarTextTheme.create(
+            colorScheme.textBtnColor,
+          ));
 
   ThemeData get themeData => ThemeData(
         brightness: brightness,
         primaryColor:
             colorScheme.primary,
         backgroundColor:
-            colorScheme.white,
+            colorScheme.backgroundColor,
         colorScheme: ColorScheme.light(
           brightness: brightness,
           primary: colorScheme.primary,
@@ -64,10 +72,10 @@ class MeCarThemeData {
           onSurface: colorScheme.dark,
         ),
         appBarTheme: AppBarTheme(
-          foregroundColor:
-              colorScheme.white,
-          backgroundColor:
-              colorScheme.white,
+          foregroundColor: colorScheme
+              .backgroundColor,
+          backgroundColor: colorScheme
+              .backgroundColor,
         ),
         tabBarTheme: TabBarTheme(
           labelColor:
@@ -76,7 +84,7 @@ class MeCarThemeData {
               colorScheme.dark,
         ),
         scaffoldBackgroundColor:
-            colorScheme.white,
+            colorScheme.backgroundColor,
       );
 
   factory MeCarThemeData.light() =>
@@ -84,6 +92,12 @@ class MeCarThemeData {
           brightness: Brightness.light,
           colorScheme:
               MeCarColorScheme.light());
+
+  factory MeCarThemeData.dark() =>
+      MeCarThemeData(
+          brightness: Brightness.dark,
+          colorScheme:
+              MeCarColorScheme.dark());
 }
 
 class MeCarTextTheme {

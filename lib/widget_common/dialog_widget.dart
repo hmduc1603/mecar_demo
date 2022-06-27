@@ -58,7 +58,11 @@ class MeCarDialog
                       'title!',
                       style: myTheme
                           .textThemeT1
-                          .bigTitle,
+                          .bigTitle
+                          .copyWith(
+                              color: myTheme
+                                  .colorScheme
+                                  .dark),
                       textAlign:
                           TextAlign
                               .center,
@@ -72,7 +76,11 @@ class MeCarDialog
                     message,
                     style: myTheme
                         .textThemeT1
-                        .error,
+                        .error
+                        .copyWith(
+                            color: myTheme
+                                .colorScheme
+                                .dark),
                     textAlign: TextAlign
                         .center,
                     maxLines: 8,
@@ -81,6 +89,18 @@ class MeCarDialog
                       spacing: MeCarDimens
                           .spacing30),
                   MeCarPrimaryButton(
+                    titleStyle: context
+                        .myTheme
+                        .textThemeT1
+                        .button
+                        .copyWith(
+                            color: context
+                                .myTheme
+                                .colorScheme
+                                .white),
+                    buttonColor: myTheme
+                        .colorScheme
+                        .dark,
                     onPressed: () =>
                         context.pop(),
                     title:

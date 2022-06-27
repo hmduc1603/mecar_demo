@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:mecar/util/extension/context_ext.dart';
+import 'package:mecar/app/app/app_cubit.dart';
+import 'package:mecar/app/config/app_route.dart';
+import 'package:mecar/app/theme/themes.dart';
 import 'app/app/app_page.dart';
 import 'app/config/app_config.dart';
-import 'app/config/app_route.dart';
 import 'di/injector.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -24,35 +25,37 @@ runAppWithConfig(AppConfig appConfig) {
   }, (error, stack) => print(error));
 }
 
-class MainApp extends StatefulWidget {
-  const MainApp({Key? key})
-      : super(key: key);
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
 
-  @override
-  _State createState() => _State();
-}
-
-class _State extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const MeCarApp(),
-      localizationsDelegates:
-          AppLocalizations
-              .localizationsDelegates,
-      supportedLocales: const [
-        Locale('vi', 'VN'),
-        Locale('en', 'EN'),
-      ],
-      debugShowCheckedModeBanner: false,
-      theme: context.myTheme.themeData,
-      initialRoute: AppRoute.root,
-      locale: AppLocalizations
-          .supportedLocales.first,
-      onGenerateRoute:
-          (routeSettings) =>
-              AppRoute.onGenerateRoute(
-                  routeSettings),
-    );
+    final appCubit = getIt<AppCubit>();
+    return StreamBuilder<
+            MeCarThemeData>(
+        stream: appCubit.appThemeStream,
+        builder: (context, snapshot) {
+          return MaterialApp(
+            theme: appCubit.state
+                .appTheme.themeData,
+            home: const MeCarApp(),
+            localizationsDelegates:
+                AppLocalizations
+                    .localizationsDelegates,
+            supportedLocales: const [
+              Locale('vi', 'VN'),
+              Locale('en', 'EN'),
+            ],
+            debugShowCheckedModeBanner:
+                false,
+            initialRoute: AppRoute.root,
+            locale: AppLocalizations
+                .supportedLocales.first,
+            onGenerateRoute:
+                (routeSettings) => AppRoute
+                    .onGenerateRoute(
+                        routeSettings),
+          );
+        });
   }
 }

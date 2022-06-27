@@ -34,9 +34,13 @@ class _SignUpPage extends BaseState<
     if (previous.onSucceed !=
             current.onSucceed &&
         current.onSucceed) {
-      context.pushReplacementNamed(
-          AppRoute.tfaConfirm,
-          arguments: state.phoneNum);
+      context
+          .pushNamed(
+              AppRoute.tfaConfirm,
+              arguments: state.phoneNum)
+          //If verfication succeed, it will pop to root, not here. So if it pop to sign up, need to reset state
+          .whenComplete(
+              () => cubit.reset());
     }
     return super.onStateChanged(
         previous, current);

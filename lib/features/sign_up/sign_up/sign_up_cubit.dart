@@ -1,12 +1,15 @@
 import 'package:injectable/injectable.dart';
 import 'package:mecar/base/base_cubit.dart';
+import 'package:mecar/core/domain/usecase/send_tfa_usecase.dart';
 import 'package:mecar/features/sign_up/sign_up/sign_up_state.dart';
 
 @injectable
 class SignUpCubit
     extends BaseCubit<SignUpState> {
-  SignUpCubit()
-      : super(const SignUpState());
+  final SendTfaUseCase sendTfaUseCase;
+  SignUpCubit(
+    this.sendTfaUseCase,
+  ) : super(const SignUpState());
 
   submitPhoneNumber() async {
     try {
@@ -24,5 +27,10 @@ class SignUpCubit
 
   onPhoneNumChanged(String? num) {
     emit(state.copyWith(phoneNum: num));
+  }
+
+  reset() {
+    emit(state.copyWith(
+        onSucceed: false));
   }
 }

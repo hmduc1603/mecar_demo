@@ -8,6 +8,7 @@ class MeCarPrimaryButton
   final VoidCallback onPressed;
   final String title;
   final Color? buttonColor;
+  final TextStyle? titleStyle;
   final double? buttonHeight;
   final bool enable;
 
@@ -18,6 +19,7 @@ class MeCarPrimaryButton
     this.buttonColor,
     this.buttonHeight,
     this.enable = true,
+    this.titleStyle,
   }) : super(key: key);
 
   @override
@@ -28,11 +30,21 @@ class MeCarPrimaryButton
       child: Opacity(
           opacity: enable ? 1 : 0.5,
           child: ElevatedButton(
+            style: ButtonStyle(
+              backgroundColor:
+                  MaterialStateProperty
+                      .all(buttonColor ??
+                          context
+                              .myTheme
+                              .colorScheme
+                              .primary),
+            ),
             child: Text(title,
-                style: context
-                    .myTheme
-                    .buttonThemeT2
-                    .button),
+                style: titleStyle ??
+                    context
+                        .myTheme
+                        .buttonTitleThemeT1
+                        .button),
             onPressed: enable
                 ? onPressed
                 : null,
@@ -119,7 +131,7 @@ class MeCarIconButton
           color: backgroundColor,
           border: Border.all(
             color: borderColor ??
-                Colors.white,
+                Colors.transparent,
             width: borderWidth ?? 0,
           ),
           borderRadius:

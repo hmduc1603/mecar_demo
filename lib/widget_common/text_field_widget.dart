@@ -85,11 +85,12 @@ class MeCarTextFormField
       decoration: hasBorder
           ? BoxDecoration(
               border: Border.all(
-                  width: 0.3,
+                  width: 0.5,
                   color: context
                       .myTheme
-                      .colorScheme
-                      .dark),
+                      .borderThemeT1
+                      .title
+                      .color!),
             )
           : null,
       child: TextFormField(

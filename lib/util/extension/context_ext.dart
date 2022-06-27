@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mecar/di/injector.dart';
+import '../../app/app/app_cubit.dart';
 import '../../app/theme/themes.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 extension Style on BuildContext {
   MeCarThemeData get myTheme =>
-      MeCarThemeData.light();
+      getIt<AppCubit>().state.appTheme;
 }
 
 extension Navigate on BuildContext {

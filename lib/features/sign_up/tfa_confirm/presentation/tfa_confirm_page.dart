@@ -29,10 +29,27 @@ class _TfaConfirmPageState
         TfaConfirmState,
         TfaConfirmCubit,
         TfaConfirmPage> {
+  final _tecCodeNode = FocusNode();
+
   @override
   void initState() {
     cubit.countDownResendTimeLeft();
     super.initState();
+  }
+
+  @override
+  onStateChanged(
+      TfaConfirmState previous,
+      TfaConfirmState current) {
+    if (previous.onSucceed !=
+            current.onSucceed &&
+        current.onSucceed) {
+      showMessage('Sign Up Completed')
+          .whenComplete(() =>
+              context.popUntilFirst());
+    }
+    return super.onStateChanged(
+        previous, current);
   }
 
   @override
@@ -68,6 +85,8 @@ class _TfaConfirmPageState
                                 4),
                     child:
                         PinCodeTextField(
+                      focusNode:
+                          _tecCodeNode,
                       inputFormatters: <
                           TextInputFormatter>[
                         FilteringTextInputFormatter
@@ -77,6 +96,10 @@ class _TfaConfirmPageState
                       keyboardType:
                           TextInputType
                               .number,
+                      cursorColor: context
+                          .myTheme
+                          .colorScheme
+                          .primary,
                       pinTheme: PinTheme(
                           fieldHeight:
                               30,
@@ -106,11 +129,13 @@ class _TfaConfirmPageState
                     ),
                   ),
                   MeCarPrimaryButton(
-                      enable: state
-                          .isCodeValid,
                       title: 'Verify',
-                      onPressed: () => cubit
-                          .submitCode()),
+                      onPressed: () => state
+                              .isCodeValid
+                          ? cubit
+                              .submitCode()
+                          : _tecCodeNode
+                              .requestFocus()),
                   const VSpacing(),
                   Row(
                     mainAxisAlignment:

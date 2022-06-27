@@ -103,7 +103,7 @@ class MeCarLoadingWidget
                         context
                             .myTheme
                             .colorScheme
-                            .primaryLight,
+                            .dark,
                       ],
                       strokeWidth: 2,
                     ),
@@ -121,7 +121,7 @@ class MeCarLoadingWidget
                       color: context
                           .myTheme
                           .colorScheme
-                          .primaryLight),
+                          .textBtnColor),
               textAlign:
                   TextAlign.center,
             )
