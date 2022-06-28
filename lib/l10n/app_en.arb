@@ -1,3 +1,39 @@
 {
-"helloWorld": "Hello World!"
+    "unknown": "Unknown",
+    "signInWelcomeTitle": "Welcome",
+    "signInWelcomeDesc": "You're only a few step away from joining MeCar",
+    "signInLoginFieldHint": "Login with Email/Phone",
+    "signInDontHaveAccountLabel": "Don't have account?",
+    "signUpBtnTitle": "Sign Up",
+    "signUpTitle": "Sign Up",
+    "signUpArgreements1": "By register, I agree to Autoo’s ",
+    "signUpArgreements2": "terms of use ",
+    "signUpArgreements3": "& acknowledge their ",
+    "signUpArgreements3": "& acknowledge their ",
+    "signUpArgreements4": "privacy policy",
+    "nextBtnTitle": "Next",
+    "signUpAlreayMemberLabel": "Already a member?",
+    "loginBtnTitle": "Login",
+    "signUpPhoneFieldHint": "Phone number",
+    "msgSignUpCompleted": "Sign Up Completed",
+    "tfaTitle": "Verification",
+    "tfaNotice": "Please enter the 6 digit code that was sent to {phone}",
+    "@tfaNotice": {
+        "placeholders": {
+            "phone" : {
+                "type": "String"
+            }
+        }
+    },
+    "verifyBtnTitle": "Verify",
+    "resendCodeBtnTitle": "Resend code {second}",
+    "@resendCodeBtnTitle": {
+        "placeholders": {
+            "second" : {
+                "type": "String"
+            }
+        }
+    },
+    "closeBtnTitle": "Close"
+
 }

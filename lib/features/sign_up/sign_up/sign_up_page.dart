@@ -73,7 +73,9 @@ class _SignUpPage extends BaseState<
                     spacing: MeCarDimens
                         .spacing18),
                 MeCarPrimaryButton(
-                  title: 'Next',
+                  title: context
+                      .localizations
+                      .nextBtnTitle,
                   onPressed: () => _formKey
                                   .currentState !=
                               null &&
@@ -94,10 +96,13 @@ class _SignUpPage extends BaseState<
           mainAxisAlignment:
               MainAxisAlignment.center,
           children: [
-            Text("Already a member?"),
+            Text(context.localizations
+                .signUpAlreayMemberLabel),
             const HSpacing(),
             MeCarTextButton(
-                title: 'Login',
+                title: context
+                    .localizations
+                    .loginBtnTitle,
                 style: context.myTheme
                     .textThemeT1.button,
                 onPressed: () =>
@@ -118,7 +123,8 @@ class _SignUpPage extends BaseState<
                 value, context),
         onChanged: (value) => cubit
             .onPhoneNumChanged(value),
-        hint: 'Phone number',
+        hint: context.localizations
+            .signUpPhoneFieldHint,
         padding: const EdgeInsets.all(
             MeCarDimens.spacing7),
         hintStyle: context
@@ -141,7 +147,9 @@ class _TitleItem
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Text('Sign Up',
+      Text(
+          context.localizations
+              .signUpTitle,
           style: context.myTheme
               .textThemeT1.header1),
       const VSpacing(),
@@ -151,13 +159,15 @@ class _TitleItem
         child: RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
-            text:
-                'By register, I agree to Autoo’s ',
+            text: context.localizations
+                .signUpArgreements1,
             style: context.myTheme
                 .textThemeT1.body,
             children: <TextSpan>[
               TextSpan(
-                  text: 'terms of use ',
+                  text: context
+                      .localizations
+                      .signUpArgreements2,
                   style: context.myTheme
                       .textThemeT1.body
                       .copyWith(
@@ -165,12 +175,14 @@ class _TitleItem
                               .myTheme
                               .colorScheme
                               .blue)),
-              const TextSpan(
-                  text:
-                      '& acknowledge their '),
               TextSpan(
-                  text:
-                      'privacy policy',
+                  text: context
+                      .localizations
+                      .signUpArgreements3),
+              TextSpan(
+                  text: context
+                      .localizations
+                      .signUpArgreements4,
                   style: context.myTheme
                       .textThemeT1.body
                       .copyWith(

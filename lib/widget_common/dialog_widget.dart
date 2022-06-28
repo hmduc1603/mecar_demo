@@ -103,9 +103,10 @@ class MeCarDialog
                         .dark,
                     onPressed: () =>
                         context.pop(),
-                    title:
-                        buttonTitle ??
-                            'Đóng',
+                    title: buttonTitle ??
+                        context
+                            .localizations
+                            .closeBtnTitle,
                   ),
                 ],
               ),

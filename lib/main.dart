@@ -42,15 +42,14 @@ class MainApp extends StatelessWidget {
             localizationsDelegates:
                 AppLocalizations
                     .localizationsDelegates,
-            supportedLocales: const [
-              Locale('vi', 'VN'),
-              Locale('en', 'EN'),
-            ],
+            supportedLocales:
+                AppLocalizations
+                    .supportedLocales,
+            locale: appCubit
+                .state.appLocale,
             debugShowCheckedModeBanner:
                 false,
             initialRoute: AppRoute.root,
-            locale: AppLocalizations
-                .supportedLocales.first,
             onGenerateRoute:
                 (routeSettings) => AppRoute
                     .onGenerateRoute(

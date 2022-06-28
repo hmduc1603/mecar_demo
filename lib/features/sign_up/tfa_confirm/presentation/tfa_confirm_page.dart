@@ -44,7 +44,8 @@ class _TfaConfirmPageState
     if (previous.onSucceed !=
             current.onSucceed &&
         current.onSucceed) {
-      showMessage('Sign Up Completed')
+      showMessage(context.localizations
+              .msgSignUpCompleted)
           .whenComplete(() =>
               context.popUntilFirst());
     }
@@ -71,7 +72,7 @@ class _TfaConfirmPageState
                     CrossAxisAlignment
                         .stretch,
                 children: [
-                  _TitleItem(),
+                  _buildTitle(context),
                   const VSpacing(
                       spacing: MeCarDimens
                           .spacing25),
@@ -129,7 +130,9 @@ class _TfaConfirmPageState
                     ),
                   ),
                   MeCarPrimaryButton(
-                      title: 'Verify',
+                      title: context
+                          .localizations
+                          .verifyBtnTitle,
                       onPressed: () => state
                               .isCodeValid
                           ? cubit
@@ -143,8 +146,11 @@ class _TfaConfirmPageState
                             .center,
                     children: [
                       MeCarTextButton(
-                        title:
-                            'Resend code${state.getTimeLeftAsString()}',
+                        title: context
+                            .localizations
+                            .resendCodeBtnTitle(
+                                state
+                                    .getTimeLeftAsString()),
                         onPressed: () =>
                             cubit.resendCode(
                                 widget
@@ -171,14 +177,13 @@ class _TfaConfirmPageState
       ),
     );
   }
-}
 
-class _TitleItem
-    extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildTitle(
+      BuildContext context) {
     return Column(children: [
-      Text('Verification',
+      Text(
+          context
+              .localizations.tfaTitle,
           style: context.myTheme
               .textThemeT1.header1),
       const VSpacing(),
@@ -186,7 +191,9 @@ class _TitleItem
           padding: const EdgeInsets.all(
               MeCarDimens.spacing18),
           child: Text(
-            'Please enter the 6 digit code that was sent to 0909563505',
+            context.localizations
+                .tfaNotice(
+                    widget.phoneNum),
             textAlign: TextAlign.center,
           ))
     ]);

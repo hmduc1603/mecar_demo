@@ -1,0 +1,39 @@
+{
+    "unknown": "Không rõ",
+    "signInWelcomeTitle": "Xin chào",
+    "signInWelcomeDesc": "Bạn chỉ còn cách vài bước để gia nhập MeCar",
+    "signInLoginFieldHint": "Đăng nhập với Email/Điện thoại",
+    "signInDontHaveAccountLabel": "Không có tài khoản?",
+    "signUpBtnTitle": "Đăng ký",
+    "signUpTitle": "Đăng ký",
+    "signUpArgreements1": "Bằng việc đăng ký, Tôi đồng ý với Autoo’s ",
+    "signUpArgreements2": "Điều kiện sử dụng ",
+    "signUpArgreements3": "& hiểu rõ ",
+    "signUpArgreements4": "chính sách riêng tư",
+    "nextBtnTitle": "Kế tiếp",
+    "signUpAlreayMemberLabel": "Đã có tài khoản?",
+    "loginBtnTitle": "Đăng nhập",
+    "signUpPhoneFieldHint": "Số điện thoại",
+    "msgSignUpCompleted": "Đăng ký thành công",
+    "tfaTitle": "Xác nhận",
+    "tfaNotice": "Hãy nhập 6 chữ số được gửi tới {phone}",
+    "@tfaNotice": {
+        "placeholders": {
+            "phone" : {
+                "type": "String"
+            }
+        }
+    },
+    "verifyBtnTitle": "Xác nhận",
+    "resendCodeBtnTitle": "Gửi lại mã {second}",
+    "@resendCodeBtnTitle": {
+        "placeholders": {
+            "second" : {
+                "type": "String"
+            }
+        }
+    },
+    "closeBtnTitle": "Đóng"
+
+
+}

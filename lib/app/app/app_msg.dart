@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mecar/util/extension/context_ext.dart';
 
 enum AppMsg {
   unKnown,
@@ -9,7 +10,8 @@ extension AppMsgExt on AppMsg {
       BuildContext context) {
     switch (this) {
       case AppMsg.unKnown:
-        return 'Unknown';
+        return context
+            .localizations.unknown;
     }
   }
 }

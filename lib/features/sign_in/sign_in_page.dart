@@ -38,11 +38,12 @@ class _SignInPageState
                     MeCarDimens
                         .spacing18),
             child: MeCarTextFormField(
-              prefixIcon: Icon(
+              prefixIcon: const Icon(
                   Icons.email_outlined),
               enableUnderline: false,
-              hint:
-                  'Login with Email/Phone',
+              hint: context
+                  .localizations
+                  .signInLoginFieldHint,
             ),
           )
         ],
@@ -54,10 +55,13 @@ class _SignInPageState
           mainAxisAlignment:
               MainAxisAlignment.center,
           children: [
-            Text("Don't have account?"),
+            Text(context.localizations
+                .signInDontHaveAccountLabel),
             const HSpacing(),
             MeCarTextButton(
-                title: 'Sign Up',
+                title: context
+                    .localizations
+                    .signUpBtnTitle,
                 style: context.myTheme
                     .textThemeT1.button,
                 onPressed: () => context
@@ -108,7 +112,10 @@ class _SignInPageState
                     CrossAxisAlignment
                         .stretch,
                 children: [
-                  Text("Welcome",
+                  Text(
+                      context
+                          .localizations
+                          .signInWelcomeTitle,
                       style: context
                           .myTheme
                           .textThemeT1
@@ -120,7 +127,9 @@ class _SignInPageState
                                   .white)),
                   const VSpacing(),
                   Text(
-                      "You're only a few step away from joining MeCar",
+                      context
+                          .localizations
+                          .signInWelcomeDesc,
                       style: context
                           .myTheme
                           .textThemeT1
