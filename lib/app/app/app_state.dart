@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mecar/app/theme/themes.dart';
 
@@ -9,8 +10,9 @@ class AppState extends Equatable {
   final bool isLoading;
   final dynamic error;
   final MeCarThemeData appTheme;
-  Locale get appLocale =>
-      Locale(Platform.localeName
+  Locale get appLocale => Locale(kIsWeb
+      ? 'en'
+      : Platform.localeName
           .split('_')
           .first);
 
